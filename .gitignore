@@ -1,0 +1,23 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# don't sync large files created by the code:
+*.pdf
+*.svg
+*.html
+*.doc
+*.odp
+
+# don't sync potentially non-anonymized data:
+data/30implicit_*.csv
+data/30explicit_*.csv
+data/60implicit_*.csv
+data/60explicit_*.csv
+data/cursorjump_*.csv
+data/aging_implicit*.csv
+data/aging_explicit*.csv
+participant_awareness.csv
+participants.csv
+participants_files.csv
