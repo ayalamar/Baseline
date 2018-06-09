@@ -1,0 +1,98 @@
+---
+title: "Predicted Sensory Consequences and Sensory Afferents"
+output:
+  pdf_document: default
+  html_notebook: default
+  html_document:
+    df_print: paged
+bibliography: bibliography.bib
+---
+
+_Bernard Marius 't Hart, Maria Nadine Ayala, Denise Y.P. Henriques_
+
+```{r echo = F, eval = T}
+source('R/figures.R')
+source('R/dataCollection.R')
+source('R/variance.R')
+source('R/checkDataCollection.R')
+```
+
+
+# Abstract
+
+# Introduction
+
+Knowledge of limb position is fundamental for motor planning. Visual information is usually very accurate and precise, but in the absence of vision people can rely on at least two other sources of information: proprioceptive afferents as well as predicted sensory consequences. We previously expected these two signals to be "optimally integrated" using Bayesian integration, or maximum likelihood estimate [@Ernst2002]. However, in some earlier papers we found no evidence of this [@Jones2012, @Byrne2013, @Hart2016]. A possible reason is that the brain doesn't combine predicted and proprioceptive information as a maximum likelihood estimate. But the previous experiments perhaps suffered from a lack of power. So here we explore this question with a much larger dataset.
+
+This was usually in the context of a visuomotor rotation adaptation, that leads to updated predicted sensory consequences (XXXX) and recalibrated proprioception (XXXX). This means that the two signals might have been biased, at least with respect to each other and only after training, an it usually only involved a couple dozen participants. Here we look at pre-training data from more than 100 participants.
+
+By rewriting the formulas used in a maximum likelihood estimate, we previously tried to estimate the variance and mean of the predicted sensory consequences, using localization responses based only on proprioception (passive localization) or on both proprioception and prediction (active localization). This did not work however. It quickly became clear why. In a maximum likelihood estimate, the variance of responses based on two signals should be lower than the variance of responses based on either one:
+
+$\sigma_{ae}^2=\frac{\sigma_a^2\ \cdot\ \sigma_e^2}{\sigma_a^2\ +\ \sigma_e^2}$
+
+But the variance in active localization (afferent and efferent) was not always lower than in passive localization (afferent only), and in fact they were about equal [@Hart2016]. So here we explore further 
+
+# Methods
+
+## Participants
+
+Data from 104 younger adults (XXX - XXX) and 38 older adults (XXX - XXX) was available. Most participants were recruited from the university population through participant pools (URPP for psychology students, KURE for kinesiology students and XXXX for older adults). Some older participants were recruited through nearby communities. Participants all had normal or corrected to normal vision, were right handed, and self-report as neurologically healthy. Procedures were approved by York's XYZ committee, and all participants provided prior, written, informed consent.
+
+## Apparatus
+
+## Trials
+
+## Procedure
+
+## Analysis
+
+Here we take data from several other experiments that shared an identical aligned condition that included training trials with veridical feedback, no-cursor trials to serve as baseline for reach aftereffects, and two hand localization tasks: passive and active hand localization.
+
+# Results
+
+## Variance in active and passive localization
+
+If the brain combines proprioception with predicted sensory consequences using a maximum likelihood estimate to assess hand location, then the variance in hand localization responses should decrease when both signals are present. However, we can see this is not the case (see Fig 2).
+
+```{r echo = F, eval = T, fig.width=8, fig.height=4}
+# Fig 2
+plotVarianceMLE()
+```
+**Figure 2. Variance in passive over variance in active localization responses.**
+_Under "optimal" integration the variance in passive should be higher than in active localization. That is, the dots should be above the identity line in black, but instead, data clusters around the identity line. For some reason (outliers?) the confidence interval for the regression line even falls below the identity line for younger participants._
+
+## Variance across age
+
+```{r eval=T, echo=F, fig.width=8, fig.height=4}
+# Figure 3
+plotVarianceAge()
+```
+**Figure 3. Variance in passive and active localization responses across age.**
+_It is assumed that older participants have lower proprioceptive accuracy. This predicts that older participants should have higher variance in localization responses. According to a simple t-test, there is no difference for active localization (t(36.476)=-1.1298, p=0.133, d=-0.2650692) but there is for passive localization (t(37.725)=-1.7369, p=0.04528, d=-0.3979823), although it isn't very convincing. Perhaps because passive localization relies on proprioception only, that difference is slightly larger._
+
+
+## Proprioceptive priors
+
+Weak priors would be more susceptible to change, so we want to look at how much proprioception shifts with training, as a function of the variance of passive localization before training. Since in the original experiment we found no differences in proprioceptive recalibration across groups, except for a slightly larger proprioceptive recalibration in older participants, we pool all younger and all older participants for this analysis.
+
+
+```{r eval=T, echo=F, fig.width=8, fig.height=8}
+# Figure 4
+plotVarianceRecalibration()
+```
+**Figure 4. Post-training localization shift over pre-training localization variance.**
+_Less reliable sources of information (weak priors) should be more sucseptible to updating in the face of new information. This predicts that people with high variance in pre-training localization, should have higher changes in post-training localization. This is confirmed for the younger participants, but not for the older participants, possibly because the power for the older participants is fairly low._
+
+## Motor priors
+
+
+
+# Discussion
+
+
+
+
+# Acknowledgements
+
+
+# References
